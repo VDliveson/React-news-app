@@ -77,8 +77,12 @@ export default function News(props) {
   return (
     <>
       <div className="container my-3">
-        <h1>News app- Top {props.category} Headlines</h1>
-
+        <div className="top-heading" style={{
+          marginBottom: "50px",
+        }}>
+        {props.category!=="" && <h1>Top {props.category!=="general"?props.category:""} Headlines</h1>}
+        {props.query && <h1>Search results for topic : {query}</h1>}
+        </div>
         <InfiniteScroll
           dataLength={articles.length}
           next={fetchMoreData}
